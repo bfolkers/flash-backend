@@ -14,8 +14,9 @@ var favorite = require('./routes/favorite');
 var flashcard = require('./routes/flashcard');
 require('dotenv').config();
 var passport = require('./passport');
+var cors = require('cors');
 var app = express();
-var cors = require('cors')
+
 
 
 // // view engine setup
@@ -53,12 +54,12 @@ app.get('/login',
   });
 
 app.get('/login/facebook',
-  passport.authenticate('facebook'));
+  passport.authenticate('facebook', {scope: ['email']}));
 
 app.get('/login/facebook/return',
   passport.authenticate('facebook', { failureRedirect: 'https://rhinoflash-e4988.firebaseapp.com/login.html' }),
   function(req, res) {
-    res.redirect('https://rhinoflash-e4988.firebaseapp.com/login.html');
+    res.redirect('https://rhinoflash-e4988.firebaseapp.com/');
   });
 
 // catch 404 and forward to error handler
