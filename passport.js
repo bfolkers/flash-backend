@@ -5,7 +5,7 @@ console.log(process.env.CLIENT_ID);
 passport.use(new FacebookStrategy({
   clientID: process.env.CLIENT_ID,
   clientSecret: process.env.CLIENT_SECRET,
-  callbackURL: 'http://localhost:3000/login/facebook/return'
+  callbackURL: 'https://rhinoflash-e4988.firebaseapp.com'
   },
   function(accessToken, refreshToken, profile, cb) {
     return cb(null, profile);
