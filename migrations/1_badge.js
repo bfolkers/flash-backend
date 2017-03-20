@@ -1,10 +1,8 @@
 exports.up = function(knex, Promise) {
   return knex.schema.createTable('badge', function (table) {
-    table.increments();
-    table.string('badges');
-    table.integer('user_id')
-      .references('user.id')
-      .onDelete('CASCADE');
+    table.string('pathTo5Badge');
+    table.string('pathToPerfectBadge');
+    table.string('pathToCreate5Badge');
   });
 };
 
