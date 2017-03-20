@@ -37,12 +37,12 @@ app.use(passport.session());
 
 app.use('/', index);
 app.use('/users', users);
-// app.use('/badge', badge);
-// app.use('/subject', subject);
-// app.use('/username', username);
-// app.use('/deck', deck);
-// app.use('/favorite', favorite);
-// app.use('/flashcard', flashcard);
+app.use('/badge', badge);
+app.use('/subject', subject);
+app.use('/username', username);
+app.use('/deck', deck);
+app.use('/favorite', favorite);
+app.use('/flashcard', flashcard);
 
 app.get('/login',
   function(req, res){
