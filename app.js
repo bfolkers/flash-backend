@@ -27,7 +27,7 @@ app.use(session({
 }));
 app.use(passport.initialize());
 app.use(passport.session());
-app.use(express.static(path.join(__dirname, 'https://rhinoflash-e4988.firebaseapp.com/')));
+// app.use(express.static(path.join(__dirname, 'https://rhinoflash-e4988.firebaseapp.com/')));
 
 app.use('/', index);
 app.use('/users', users);
