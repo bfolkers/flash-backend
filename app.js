@@ -1,13 +1,13 @@
 var express = require('express');
 var path = require('path');
-// var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-
+var session = require('express-session');
 var index = require('./routes/index');
 var users = require('./routes/users');
-
+require('dotenv').config();
+var passport = require('./passport');
 var app = express();
 
 // // view engine setup
@@ -20,7 +20,14 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(session({
+  secret: 'keyboard alpaca',
+  saveUninitialized: true,
+  resave: false
+}));
+app.use(passport.initialize());
+app.use(passport.session());
+app.use(express.static(path.join(__dirname, 'https://rhinoflash-e4988.firebaseapp.com/')));
 
 app.use('/', index);
 app.use('/users', users);
