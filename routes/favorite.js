@@ -6,6 +6,7 @@ router.get('/', function(req, res) {
   .select()
   .then(function (result) {
     res.json(result);
-  })
-})
+  });
+});
+
 module.exports = router;
