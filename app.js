@@ -6,6 +6,12 @@ var bodyParser = require('body-parser');
 var session = require('express-session');
 var index = require('./routes/index');
 var users = require('./routes/users');
+var badge = require('./routes/badge');
+var subject = require('./routes/subject');
+var username = require('./routes/username');
+var deck = require('./routes/deck');
+var favorite = require('./routes/favorite');
+var flashcard = require('./routes/flashcard');
 require('dotenv').config();
 var passport = require('./passport');
 var app = express();
@@ -31,6 +37,26 @@ app.use(passport.session());
 
 app.use('/', index);
 app.use('/users', users);
+app.use('/badge', badge);
+app.use('/subject', subject);
+app.use('/username', username);
+app.use('/deck', deck);
+app.use('/favorite', favorite);
+app.use('/flashcard', flashcard);
+
+app.get('/login',
+  function(req, res){
+    res.redirect('https://rhinoflash-e4988.firebaseapp.com/login.html');
+  });
+
+app.get('/login/facebook',
+  passport.authenticate('facebook'));
+
+app.get('/login/facebook/return',
+  passport.authenticate('facebook', { failureRedirect: 'https://rhinoflash-e4988.firebaseapp.com/login.html' }),
+  function(req, res) {
+    res.redirect('https://rhinoflash-e4988.firebaseapp.com/login.html');
+  });
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
