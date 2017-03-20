@@ -2,11 +2,11 @@ exports.up = function(knex, Promise) {
   return knex.schema.createTable('deck', function (table) {
     table.increments();
     table.string('name');
-    table.integer('user_id')
-      .references('user.id')
+    table.string('username_email')
+      .references('username.email')
       .onDelete('CASCADE');
-    table.integer('deck_subject_id')
-      .references('deck_subject.id')
+    table.integer('subject_id')
+      .references('subject.id')
       .onDelete('CASCADE');
   });
 };

@@ -1,9 +1,7 @@
 exports.up = function(knex, Promise) {
   return knex.schema.createTable('favorite', function (table) {
-    table.increments();
-    table.string('current');
-    table.integer('user_id')
-      .references('user.id')
+    table.string('username_email')
+      .references('username.email')
       .onDelete('CASCADE');
     table.integer('deck_id')
       .references('deck.id')
