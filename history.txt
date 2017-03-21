@@ -6321,11 +6321,11 @@
  6321  ls
  6322  firebase init
  6323  firebase deploy
- 6324* ls
- 6325* cd angularSiteTwo
- 6326* ls
- 6327* cd bootstrapTest
- 6328* ng serve
+ 6324  ls
+ 6325  cd angularSiteTwo
+ 6326  ls
+ 6327  cd bootstrapTest
+ 6328  ng serve
  6329  ls
  6330  cd bootstrapTest
  6331  ls
@@ -6408,3 +6408,269 @@
  6408  ls
  6409  git checkout -b migrations
  6410  ls
+ 6411  history > history.txt
+ 6412  knex migrate:make user
+ 6413  npm install
+ 6414  ls
+ 6415  knex migrate:make user
+ 6416  knex init
+ 6417  knex migrate:make user
+ 6418  knex migrate:make subject
+ 6419  knex migrate:make favorite
+ 6420  knex migrate:make flashcard
+ 6421  knex migrate:make deck
+ 6422  knex migrate:make badge
+ 6423  ls
+ 6424  touch .eslintrc.js
+ 6425  knex migrate:run
+ 6426  knex migrate:latest
+ 6427  ls
+ 6428  knex migrate:latest
+ 6429  psql flashRhyno
+ 6430  knex seed:make user
+ 6431  knex seed:make badge
+ 6432  knex seed:make deck
+ 6433  knex seed:make flashcard
+ 6434  knex seed:make subject
+ 6435  knex seed:make favorite
+ 6436  ls
+ 6437  atom .
+ 6438  ..
+ 6439  ls
+ 6440  atom .
+ 6441  knex migrate:rollback
+ 6442  ls
+ 6443  cd flash-backend
+ 6444  knex migrate:rollback
+ 6445  knex migrate:latest
+ 6446  knex migrate:rollback
+ 6447  knex migrate:latest
+ 6448  knex migrate:rollback
+ 6449  knex migrate:latest
+ 6450  psql flashRhyno
+ 6451  ls
+ 6452  knex migrate:rollback
+ 6453  knex migrate:latest
+ 6454  knex migrate:rollback
+ 6455  knex migrate:make user_badge
+ 6456  knex migrate:make subject_deck
+ 6457  knex migrate:make deck_subject
+ 6458  ls
+ 6459  git add -A
+ 6460  git commit -m "migrations and seeds almost done"
+ 6461  git push origin migrations
+ 6462  git status
+ 6463  git push origin migrations
+ 6464  ls
+ 6465  git checkout master
+ 6466  git pull origin master
+ 6467  git checkout migrations
+ 6468  git checkout master
+ 6469  git checkout migrations
+ 6470  git checkout master
+ 6471  git checkout migrations
+ 6472  git merge master
+ 6473  knex migrate:rollback
+ 6474  knex seed:make deck_subject
+ 6475  knex migrate:latest
+ 6476  knex migrate:rollback
+ 6477  knex migrate:latest
+ 6478  knex seed:run
+ 6479  knex migrate:rollback
+ 6480  knex migrate:latest
+ 6481  knex seed:run
+ 6482  knex migrate:rollback
+ 6483  knex migrate:latest
+ 6484  ls
+ 6485  knex migrate:rollback
+ 6486  knex migrate:latest
+ 6487  knex seed:run
+ 6488  ls
+ 6489  psql flashRhyno
+ 6490  ls
+ 6491  knex migrate:rollback
+ 6492  knex migrate:latest
+ 6493  knex seed:run
+ 6494  psql flashRhyno
+ 6495  knex migrate:rollback
+ 6496  knex migrate:latest
+ 6497  knex migrate:rollback
+ 6498  knex migrate:latest
+ 6499  knex migrate:rollback
+ 6500  knex migrate:latest
+ 6501  knex migrate:rollback
+ 6502  knex migrate:latest
+ 6503  knex migrate:rollback
+ 6504  knex migrate:latest
+ 6505  knex migrate:rollback
+ 6506  psql flashRhyno
+ 6507  psql
+ 6508  ls
+ 6509  \psql flashRhyno
+ 6510  psql
+ 6511  createdb flashrhyno
+ 6512  knex migrate:latest
+ 6513  knex seed:run
+ 6514  psql flashrhyno
+ 6515  knex migrate:rollback
+ 6516  knex migrate:latest
+ 6517  knex migrate:rollback
+ 6518  knex migrate:latest
+ 6519  knex migrate:rollback
+ 6520  knex migrate:latest
+ 6521  knex migrate:rollback
+ 6522  knex migrate:latest
+ 6523  knex seed:run
+ 6524  heroku run knex migrate:latest
+ 6525  heroku login
+ 6526  heroku run knex migrate:latest
+ 6527  heroku run --app flash-backend
+ 6528  heroku run knex migrate:latest
+ 6529  heroku git:clone -a flash-backend
+ 6530  heroku run knex migrate:latest
+ 6531  heroku run --app flash-backend
+ 6532  git add -A
+ 6533  git commit -m "migrations probably finished"
+ 6534  git push origin migrations
+ 6535  heroku run --app flash-backend
+ 6536  git push heroku migrations
+ 6537  heroku git:remote
+ 6538  heroku git:remote --app flash-backend
+ 6539  heroku run --app flash-backend
+ 6540  heroku run knex migrate:latest
+ 6541  heroku run knex migrate:rollback
+ 6542  heroku run knex migrate:latest
+ 6543  git checkout master
+ 6544  git pull origin master
+ 6545  git checkout migrations
+ 6546  git merge master
+ 6547  heroku run knex migrate:latest
+ 6548  heroku run knex seed:run
+ 6549  ls
+ 6550  git checkout master
+ 6551  git pull origin master
+ 6552  git checkout -b tableRoutes
+ 6553  git merge master
+ 6554  git checkout migrations
+ 6555  git merge master
+ 6556  git checkout tableRoutes
+ 6557  ls
+ 6558  atom .
+ 6559  ls
+ 6560  ..
+ 6561  ls
+ 6562  cd weekEleven
+ 6563  ls
+ 6564  cd flash-backend
+ 6565  ls
+ 6566  cd galvanize
+ 6567  ls
+ 6568  cd date
+ 6569  ls
+ 6570  cd weekTen
+ 6571  ls
+ 6572  cd gRecipes
+ 6573  ls
+ 6574  ..
+ 6575  ls
+ 6576  ..
+ 6577  cd weekNine
+ 6578  ls
+ 6579  cd gBlog
+ 6580  ls
+ 6581  atom .
+ 6582  ls
+ 6583* mkdir db
+ 6584* cd db
+ 6585* ls
+ 6586* touch knex.js
+ 6587* ls
+ 6588* ..
+ 6589* ls
+ 6590* cd galvanize
+ 6591* ls
+ 6592* cd date
+ 6593* ls
+ 6594* cd weekEleven
+ 6595* ls
+ 6596* cd flash-backend
+ 6597* ls
+ 6598* nodemon app.js
+ 6599* ..
+ 6600* npm install
+ 6601* ls
+ 6602* touch .env
+ 6603* ls
+ 6604* touch env
+ 6605* ls
+ 6606* atom .env
+ 6607* nodemon bin/www
+ 6608* ls
+ 6609* git add -A
+ 6610* git commit -m "basic get requests in the routes"
+ 6611* git push origin tableRoutes
+ 6612* ls
+ 6613* cd master
+ 6614* git checkout master
+ 6615* git pull origin master
+ 6616* git checkout tableRoutes
+ 6617* git merge master
+ 6618* knex seed:run
+ 6619* psql flashrhyno
+ 6620* knex seed:run
+ 6621* knex migrate:rollback
+ 6622* knex migrate:latest
+ 6623* knex seed:run
+ 6624* ls
+ 6625* git add -A
+ 6626* git commmit -m "fixed badge routes"
+ 6627* git commit -m "fixed badge routes"
+ 6628* git push origin tableRoutes
+ 6629* git checkout master
+ 6630* ls
+ 6631* git pull origin master
+ 6632* git checkout tableRoutes
+ 6633* git merge master
+ 6634* heroku run knex seed:run
+ 6635* heroku run knex migrate:rollback
+ 6636* heroku run knex migrate:latest
+ 6637* heroku run knex seed:run
+ 6638* npm install cors -S
+ 6639* ls
+ 6640* git add -A
+ 6641* git commit -m "requiring dem cors"
+ 6642* git push origin tableRoutes
+ 6643* git checkout master
+ 6644* git pull origin master
+ 6645* git checkout tableRoutes
+ 6646* git merge master
+ 6647* knex migrate:rollback
+ 6648* heroku run knex migrate:rollback
+ 6649* knex migrate:latest
+ 6650* knex seed:run
+ 6651* knex migrate:rollback
+ 6652* knex migrate:latest
+ 6653* knex seed:run
+ 6654* heroku run knex migrate:latest
+ 6655* heroku run knex seed:run
+ 6656* knex seed:run
+ 6657* knex migrate:latest
+ 6658* knex seed:run
+ 6659* npm install
+ 6660* knex migrate:rollback
+ 6661* knex migrate:latest
+ 6662* knex seed:run
+ 6663* psql flashrhyno
+ 6664* git add -A
+ 6665* git commit -m "new username route"
+ 6666* git push origin tableRoutes
+ 6667* psql flashrhyno
+ 6668  ls
+ 6669  ..
+ 6670  ls
+ 6671  ..
+ 6672  ls
+ 6673  cd weekEleven
+ 6674  ls
+ 6675  cd flash-backend
+ 6676  ls
