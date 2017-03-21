@@ -53,7 +53,7 @@ app.get('/login/facebook/return',
   function(req, res) {
     const userEmail = req.user._json.email;
     const userName = req.user._json.name;
-    axios.post('/username', {name: userName, email: userEmail})
+    axios.post('https://flash-backend.herokuapp.com/username', {name: userName, email: userEmail})
       .then(function(res) {
         console.log(res);
         // res.redirect('https://rhinoflash-e4988.firebaseapp.com/dashboard.html?email=' + userEmail);
@@ -62,7 +62,8 @@ app.get('/login/facebook/return',
         console.log(err);
         // res.redirect('https://rhinoflash-e4988.firebaseapp.com/dashboard.html?email=' + userEmail);
       })
-    res.redirect('https://rhinoflash-e4988.firebaseapp.com/?email=' + userEmail);
+      // res.status(200).send('Yes!')
+    res.redirect('https://rhinoflash-e4988.firebaseapp.com/dashboard.html?email=' + userEmail);
   });
 
 // catch 404 and forward to error handler
