@@ -5,6 +5,7 @@ exports.up = function(knex, Promise) {
     table.integer('fiveDeckBadge');
     table.integer('perfectScore');
     table.integer('fiveFavorites');
+    table.integer('userImage')
   });
 };
 
