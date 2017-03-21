@@ -51,19 +51,21 @@ app.get('/login/facebook',
 app.get('/login/facebook/return',
   passport.authenticate('facebook', { failureRedirect: 'https://rhinoflash-e4988.firebaseapp.com/login.html' }),
   function(req, res) {
+    console.log(req.sessionID);
+    // console.log(req.cookies.token);
     const userEmail = req.user._json.email;
     const userName = req.user._json.name;
     axios.post('https://rhinocards.herokuapp.com/username', {name: userName, email: userEmail})
       .then(function(res) {
-        console.log(res);
+        // console.log(res);
         // res.redirect('https://rhinoflash-e4988.firebaseapp.com/dashboard.html?email=' + userEmail);
       })
       .catch(function(err) {
-        console.log(err);
+        // console.log(err);
         // res.redirect('https://rhinoflash-e4988.firebaseapp.com/dashboard.html?email=' + userEmail);
       })
       // res.status(200).send('Yes!')
-    res.redirect('https://rhinoflash-e4988.firebaseapp.com/dashboard.html?email=' + userEmail);
+    res.cookie('token', req.sessionID).redirect('https://rhinoflash-e4988.firebaseapp.com/dashboard.html?email=' + userEmail);
   });
 
 // catch 404 and forward to error handler
