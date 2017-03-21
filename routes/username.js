@@ -38,4 +38,12 @@ router.post('/', function(req, res){
   });
 });
 
+router.delete('/:email', function(req, res){
+
+  knex('username').where('email', req.params.email).del().then(function(result){
+    res.json(result);
+  });
+
+});
+
 module.exports = router;
