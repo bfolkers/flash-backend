@@ -19,12 +19,12 @@ router.post('/', function(req, res){
   });
 });
 
-router.delete('/:deck_id', function(req, res){
+router.delete('/', function(req, res){
 
   knex('favorite')
   .where({
-    deck_id: req.params.id,
-    username_email: req.params.email
+    deck_id: req.body.id,
+    username_email: req.body.email
   })
   .del().then(function(result){
       res.json(result);
