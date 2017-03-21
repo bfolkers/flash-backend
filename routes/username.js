@@ -17,7 +17,7 @@ router.get('/:email', function(req, res) {
   .leftJoin('deck', 'favorite.username_email', '=', 'deck.username_email')
   .leftJoin('subject', 'subject.id', '=', 'deck.subject_id')
   // .select()
-  .select('deck.name as deck_name', 'username.email', 'username.fiveDeckBadge', 'username.perfectScore', 'deck.id', 'subject.id', 'subject.name as subject_name', 'username.name as name')
+  .select('deck.name as deck_name', 'username.email', 'username.fiveDeckBadge', 'username.perfectScore', 'deck.id as deck_id', 'subject.id', 'subject.name as subject_name', 'username.name as name')
   .where('username.email', req.params.email)
   .then(function (result) {
     res.json(result);
