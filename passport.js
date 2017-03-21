@@ -4,21 +4,22 @@ var users = require('./routes/users');
 passport.use(new FacebookStrategy({
   clientID: process.env.CLIENT_ID,
   clientSecret: process.env.CLIENT_SECRET,
-  callbackURL: 'https://rhinoflash-e4988.firebaseapp.com/login.html',
+  callbackURL: 'http://localhost:3000/login/facebook/return',
   passReqToCallback : true,
-  profileFields: ['id', 'displayName', 'link', 'about_me', 'photos', 'emails']
+  profileFields: ['id', 'displayName', 'emails']
   },
-  function(accessToken, refreshToken, profile, cb) {
-    return cb(null, profile);
+  function(accessToken, refreshToken, _, profile, done) {
+    // console.log(arguments);
+    return done(null, profile);
   })
 );
 
-passport.serializeUser(function(user, cb) {
-  cb(null, user);
+passport.serializeUser(function(user, done) {
+  done(null, user);
 });
 
-passport.deserializeUser(function(obj, cb) {
-  cb(null, obj);
+passport.deserializeUser(function(obj, done) {
+  done(null, obj);
 })
 
 module.exports = passport
