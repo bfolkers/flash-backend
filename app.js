@@ -15,6 +15,7 @@ var flashcard = require('./routes/flashcard');
 require('dotenv').config();
 var passport = require('./passport');
 var cors = require('cors');
+var axios = require('axios');
 var app = express();
 
 app.use(cors());
@@ -52,11 +53,11 @@ app.get('/login/facebook/return',
   function(req, res) {
     const userEmail = req.user._json.email;
     const userName = req.user._json.name;
-    $.post('/username', {name: userName, email: userEmail})
-      .then(function(data, status) {
+    axios.post('/username', {name: userName, email: userEmail})
+      .then(function(req, res) {
         res.redirect('https://rhinoflash-e4988.firebaseapp.com/dashboard.html?email=' + userEmail);
       })
-      .catch(function(data, status) {
+      .catch(function(req, res) {
         res.redirect('https://rhinoflash-e4988.firebaseapp.com/dashboard.html?email=' + userEmail);
       })
     res.redirect('https://rhinoflash-e4988.firebaseapp.com/');
