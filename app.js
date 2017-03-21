@@ -53,7 +53,7 @@ app.get('/login/facebook/return',
   function(req, res) {
     const userEmail = req.user._json.email;
     const userName = req.user._json.name;
-    axios.post('https://flash-backend.herokuapp.com/username', {name: userName, email: userEmail})
+    axios.post('https://rhinocards.herokuapp.com/username', {name: userName, email: userEmail})
       .then(function(res) {
         console.log(res);
         // res.redirect('https://rhinoflash-e4988.firebaseapp.com/dashboard.html?email=' + userEmail);

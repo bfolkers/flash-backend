@@ -4,7 +4,7 @@ var users = require('./routes/users');
 passport.use(new FacebookStrategy({
   clientID: process.env.CLIENT_ID,
   clientSecret: process.env.CLIENT_SECRET,
-  callbackURL: 'https://flash-backend.herokuapp.com/login/facebook/return',
+  callbackURL: 'https://rhinocards.herokuapp.com/login/facebook/return',
   passReqToCallback : true,
   profileFields: ['id', 'displayName', 'emails']
   },
