@@ -38,6 +38,16 @@ router.post('/', function(req, res){
   });
 });
 
+router.patch('/:email', function(req, res){
+
+knex('username').where('email', req.params.email).update({
+  name: req.body.name,
+})
+.then(function(result){
+  res.json(result)
+});
+});
+
 router.delete('/:email', function(req, res){
 
   knex('username').where('email', req.params.email).del().then(function(result){
