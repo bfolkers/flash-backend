@@ -12,7 +12,7 @@ router.get('/', function(req, res) {
 router.get('/:username_email', function(req, res) {
   knex('favorite')
   .join('deck', 'favorite.deck_id', '=', 'deck.id')
-  .select('favorite.username_email as email', 'deck.name as deck_name')
+  .select('favorite.username_email as email', 'deck.name as deck_name', 'deck.id as deck_id')
   .where('favorite.username_email', req.params.username_email)
   .then(function (result) {
     res.json(result);
