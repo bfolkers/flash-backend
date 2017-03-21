@@ -1,5 +1,6 @@
 exports.up = function(knex, Promise) {
   return knex.schema.createTable('flashcard', function (table) {
+    table.increments();
     table.string('front');
     table.string('back');
     table.integer('deck_id')

@@ -5,7 +5,7 @@ router.get('/', function(req, res) {
   knex('deck')
   .join('flashcard', 'deck.id', '=', 'flashcard.deck_id')
   .join('subject', 'subject.id', '=', 'deck.subject_id')
-  .select('subject.name as subject', 'deck.username_email as email', 'flashcard.front', 'flashcard.back', 'deck.name')
+  .select('subject.name as subject', 'deck.username_email as email', 'flashcard.front', 'flashcard.back', 'deck.name', 'deck.id as id')
   .then(function (result) {
     res.json(result);
   });
@@ -15,11 +15,22 @@ router.get('/:id', function(req, res) {
   knex('deck')
   .join('flashcard', 'deck.id', '=', 'flashcard.deck_id')
   .join('subject', 'subject.id', '=', 'deck.subject_id')
-  .select('subject.name as subject', 'deck.username_email as email', 'flashcard.front', 'flashcard.back', 'deck.name')
+  .select('subject.name as subject', 'deck.username_email as email', 'flashcard.front', 'flashcard.back', 'deck.name as deck_name')
   .where('deck.id', req.params.id)
   .then(function (result) {
     res.json(result);
   })
 })
+
+router.post('/', function(req, res){
+
+  knex('deck').insert({
+    name: req.body.name,
+    username_email: req.body.email,
+    subject_id: knex('subject').where('name', req.body.subject).select('id'),
+  }, 'id').then(function(result){
+    res.json(result);
+  });
+});
 
 module.exports = router;
