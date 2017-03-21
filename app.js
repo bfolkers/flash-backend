@@ -54,13 +54,15 @@ app.get('/login/facebook/return',
     const userEmail = req.user._json.email;
     const userName = req.user._json.name;
     axios.post('/username', {name: userName, email: userEmail})
-      .then(function(req, res) {
-        res.redirect('https://rhinoflash-e4988.firebaseapp.com/dashboard.html?email=' + userEmail);
+      .then(function(res) {
+        console.log(res);
+        // res.redirect('https://rhinoflash-e4988.firebaseapp.com/dashboard.html?email=' + userEmail);
       })
-      .catch(function(req, res) {
-        res.redirect('https://rhinoflash-e4988.firebaseapp.com/dashboard.html?email=' + userEmail);
+      .catch(function(err) {
+        console.log(err);
+        // res.redirect('https://rhinoflash-e4988.firebaseapp.com/dashboard.html?email=' + userEmail);
       })
-    res.redirect('https://rhinoflash-e4988.firebaseapp.com/');
+    res.redirect('https://rhinoflash-e4988.firebaseapp.com/?email=' + userEmail);
   });
 
 // catch 404 and forward to error handler
