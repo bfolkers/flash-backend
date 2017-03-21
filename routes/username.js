@@ -6,7 +6,7 @@ router.get('/', function(req, res) {
   .leftJoin('favorite', 'favorite.username_email', '=', 'username.email')
   .leftJoin('deck', 'favorite.username_email', '=', 'deck.username_email')
   .leftJoin('subject', 'subject.id', '=', 'deck.subject_id')
-  .select('deck.name as deck_name', 'username.email', 'username.fiveDeckBadge', 'username.perfectScore', 'deck.id', 'subject.id', 'subject.name as subject_name', 'username.name as name')
+  .select('deck.name as deck_name', 'username.email', 'username.fiveDeckBadge', 'username.perfectScore', 'deck.id as deck_id', 'subject.id as subject_id', 'subject.name as subject_name', 'username.name as name')
   .then(function (result) {
     res.json(result);
   });
