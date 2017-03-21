@@ -3,8 +3,7 @@ const knex = require('../db/knex');
 
 router.get('/', function(req, res) {
   knex('username')
-  .leftJoin('favorite', 'favorite.username_email', '=', 'username.email')
-  .leftJoin('deck', 'favorite.username_email', '=', 'deck.username_email')
+  .leftJoin('deck', 'username.email', '=', 'deck.username_email')
   .leftJoin('subject', 'subject.id', '=', 'deck.subject_id')
   .select('deck.name as deck_name', 'username.email', 'username.fiveDeckBadge', 'username.perfectScore', 'deck.id as deck_id', 'subject.id as subject_id', 'subject.name as subject_name', 'username.name as name')
   .then(function (result) {

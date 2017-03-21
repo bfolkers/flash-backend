@@ -9,6 +9,16 @@ router.get('/', function(req, res) {
   });
 });
 
+router.get('/:username_email', function(req, res) {
+  knex('favorite')
+  .join('deck', 'favorite.deck_id', '=', 'deck.id')
+  .select('favorite.username_email as email', 'deck.name as deck_name')
+  .where('favorite.username_email', req.params.username_email)
+  .then(function (result) {
+    res.json(result);
+  });
+});
+
 router.post('/', function(req, res){
 
   knex('favorite').insert({
