@@ -17,14 +17,6 @@ var passport = require('./passport');
 var cors = require('cors');
 var app = express();
 
-
-
-// // view engine setup
-// app.set('views', path.join(__dirname, 'views'));
-// app.set('view engine', 'jade');
-
-// uncomment after placing your favicon in /public
-//app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(cors());
 app.use(logger('dev'));
 app.use(bodyParser.json());
@@ -37,7 +29,6 @@ app.use(session({
 }));
 app.use(passport.initialize());
 app.use(passport.session());
-// app.use(express.static(path.join(__dirname, 'https://rhinoflash-e4988.firebaseapp.com/')));
 
 app.use('/', index);
 app.use('/users', users);
@@ -59,6 +50,15 @@ app.get('/login/facebook',
 app.get('/login/facebook/return',
   passport.authenticate('facebook', { failureRedirect: 'https://rhinoflash-e4988.firebaseapp.com/login.html' }),
   function(req, res) {
+    const userEmail = req.user._json.email;
+    const userName = req.user._json.name;
+    $.post('/username', {name: userName, email: userEmail})
+      .then(function(data, status) {
+        res.redirect('https://rhinoflash-e4988.firebaseapp.com/dashboard.html?email=' + userEmail);
+      })
+      .catch(function(data, status) {
+        res.redirect('https://rhinoflash-e4988.firebaseapp.com/dashboard.html?email=' + userEmail);
+      })
     res.redirect('https://rhinoflash-e4988.firebaseapp.com/');
   });
 
@@ -77,7 +77,7 @@ app.use(function(err, req, res, next) {
 
   // render the error page
   res.status(err.status || 500);
-  res.render('error');
+  res.send(err.message);
 });
 
 module.exports = app;
