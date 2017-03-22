@@ -22,9 +22,9 @@ router.get('/:username_email', function(req, res) {
 router.post('/', function(req, res){
 
   knex('favorite').insert({
-    username_email: req.body.email,
-    deck_id: +req.body.id,
-  }, 'id').then(function(result){
+    username_email: knex('username').where('email', req.body.email).select('email'),
+    deck_id: knex('deck').where('id', req.body.id).select('id'),
+  }, 'deck_id').then(function(result){
     res.json(result);
   });
 });
