@@ -5,7 +5,7 @@ const passport = require('../passport');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.status(200).send();
+  res.status(200).send('hello');
 });
 
 // Render the login template
