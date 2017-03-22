@@ -24,6 +24,7 @@ router.get('/logout', function(req, res){
 router.get('/callback',
   passport.authenticate('auth0', { failureRedirect: 'https://flashrhino.com/register.html' }),
   function(req, res) {
+    console.log(req.user);
     const userEmail = req.user._json.email;
     // res.redirect(req.session.returnTo || 'http://flashrhino.com/dashboard.html?email=' + userEmail);
     res.redirect('http://flashrhino.com/dashboard.html?email=' + userEmail);
