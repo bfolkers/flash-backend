@@ -8,6 +8,7 @@
   "dependencies": {
     "axios": "^0.15.3",
     "body-parser": "~1.16.0",
+    "connect-ensure-login": "^0.1.1",
     "cookie-parser": "~1.4.3",
     "cors": "^2.8.1",
     "debug": "~2.6.0",
@@ -20,6 +21,7 @@
     "morgan": "~1.7.0",
     "nodemon": "^1.11.0",
     "passport": "^0.3.2",
+    "passport-auth0": "^0.6.0",
     "passport-facebook": "^2.1.1",
     "pg": "^6.1.4",
     "serve-favicon": "~2.3.2"

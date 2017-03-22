@@ -15,8 +15,11 @@ const flashcard = require('./routes/flashcard');
 require('dotenv').config();
 const passport = require('./passport');
 const cors = require('cors');
-const axios = require('axios');
 const app = express();
+
+app.set('view engine', 'jade');
+app.set('views', './views');
+app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(cors());
 app.use(logger('dev'));
@@ -39,29 +42,6 @@ app.use('/username', username);
 app.use('/deck', deck);
 app.use('/favorite', favorite);
 app.use('/flashcard', flashcard);
-
-app.get('/login',
-  function(req, res){
-    res.redirect('https://rhinoflash-e4988.firebaseapp.com/login.html');
-  });
-
-app.get('/login/facebook',
-  passport.authenticate('facebook', {scope: ['email']}));
-
-app.get('/login/facebook/return',
-  passport.authenticate('facebook', { failureRedirect: 'https://flashrhino.com/login.html' }),
-  function(req, res) {
-    const userEmail = req.user._json.email;
-    const userName = req.user._json.name;
-    axios.post('https://rhinocards.herokuapp.com/username', {name: userName, email: userEmail})
-      .then(function(res) {
-        console.log(res);
-      })
-      .catch(function(err) {
-        console.log(err);
-      })
-    res.status(200).cookie('token', req.sessionID).redirect('https://flashrhino.com/dashboard.html?email=' + userEmail);
-  });
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
