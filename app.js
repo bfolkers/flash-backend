@@ -12,6 +12,7 @@ const username = require('./routes/username');
 const deck = require('./routes/deck');
 const favorite = require('./routes/favorite');
 const flashcard = require('./routes/flashcard');
+const isLoggedIn = require('./routes/isLoggedIn')
 require('dotenv').config();
 const passport = require('./passport');
 const cors = require('cors');
@@ -42,6 +43,7 @@ app.use('/username', username);
 app.use('/deck', deck);
 app.use('/favorite', favorite);
 app.use('/flashcard', flashcard);
+app.use('/isLoggedIn', isLoggedIn);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
