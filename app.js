@@ -22,7 +22,9 @@ app.set('view engine', 'jade');
 app.set('views', './views');
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use(cors());
+app.use(cors({
+  origin: ['http://localhost:3000', 'https://flashrhino.com']
+}));
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
