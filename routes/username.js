@@ -14,7 +14,7 @@ router.get('/', function(req, res) {
 router.get('/:email', function(req, res) {
   knex('username')
   .leftJoin('favorite', 'favorite.username_email', '=', 'username.email')
-  .leftJoin('deck', 'favorite.username_email', '=', 'deck.username_email')
+  .leftJoin('deck', 'username.email', '=', 'deck.username_email')
   .leftJoin('subject', 'subject.id', '=', 'deck.subject_id')
   // .select()
   .select('deck.name as deck_name', 'username.email', 'username.fiveDeckBadge', 'username.perfectScore', 'deck.id as deck_id', 'subject.id', 'subject.name as subject_name', 'username.name as name', 'userImage as userImage')
