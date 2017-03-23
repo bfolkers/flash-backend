@@ -23,7 +23,8 @@ app.set('views', './views');
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(cors({
-  origin: ['http://localhost:3000', 'https://flashrhino.com']
+  origin: ['http://localhost:3000', 'https://flashrhino.com'],
+  credentials: true
 }));
 app.use(logger('dev'));
 app.use(bodyParser.json());
