@@ -13,8 +13,8 @@ router.get('/', function(req, res) {
 
 router.get('/:id', function(req, res) {
   knex('deck')
-  .join('flashcard', 'deck.id', '=', 'flashcard.deck_id')
-  .join('subject', 'subject.id', '=', 'deck.subject_id')
+  .leftJoin('flashcard', 'deck.id', '=', 'flashcard.deck_id')
+  .leftJoin('subject', 'subject.id', '=', 'deck.subject_id')
   .select('subject.name as subject', 'deck.username_email as email', 'flashcard.front', 'flashcard.back', 'deck.name as deck_name')
   .where('deck.id', req.params.id)
   .then(function (result) {
