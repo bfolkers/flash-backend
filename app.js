@@ -23,7 +23,7 @@ app.set('views', './views');
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(cors({
-  origin: ['http://localhost:3000', 'https://flashrhino.com', 'https://opentdb.com/'],
+  origin: ['http://localhost:3000', 'http://localhost:5000', 'https://flashrhino.com', 'https://opentdb.com/'],
   credentials: true
 }));
 app.use(logger('dev'));
