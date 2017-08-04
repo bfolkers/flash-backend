@@ -4,7 +4,7 @@ module.exports = {
 
   development: {
     client: 'pg',
-    connection: 'postgres://localhost/flashrhyno',
+    connection: 'postgres://localhost/portbackend',
   },
 
   production: {
