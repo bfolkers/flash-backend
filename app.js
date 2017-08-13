@@ -15,7 +15,7 @@ const index = require('./routes/index');
 // const flashcard = require('./routes/flashcard');
 // const isLoggedIn = require('./routes/isLoggedIn')
 require('dotenv').config();
-const passport = require('./passport');
+// const passport = require('./passport');
 const cors = require('cors');
 const app = express();
 
@@ -33,8 +33,6 @@ app.use(session({
   saveUninitialized: true,
   resave: false,
 }));
-app.use(passport.initialize());
-app.use(passport.session());
 
 app.use('/', index);
 app.use('/messages', myMessage);
