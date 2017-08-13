@@ -13,6 +13,7 @@ router.post('/', (req, res) => {
   knex('myMessage').insert({
     name: req.body.name,
     email: req.body.email,
+    phone: req.body.phone,
     message: req.body.message,
   }).then((result) => {
     res.json(result);

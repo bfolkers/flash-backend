@@ -1,9 +1,10 @@
 exports.up = function (knex, Promise) {
   return knex.schema.createTable('myMessage', (table) => {
-      table.string('name');
-      table.string('email');
-      table.string('message');
-    });
+    table.string('name');
+    table.string('email');
+    table.string('phone number');
+    table.string('message');
+  });
 };
 
 exports.down = function (knex, Promise) {
