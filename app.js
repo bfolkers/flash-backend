@@ -5,6 +5,7 @@ const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
 const session = require('express-session');
 const myMessage = require('./routes/message');
+const index = require('./routes/index');
 // const users = require('./routes/users');
 // const badge = require('./routes/badge');
 // const subject = require('./routes/subject');
@@ -35,7 +36,8 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 
-app.use('/checkMyMessages', myMessage);
+app.use('/', index);
+app.use('/messages', myMessage);
 // app.use('/users', users);
 // app.use('/badge', badge);
 // app.use('/subject', subject);

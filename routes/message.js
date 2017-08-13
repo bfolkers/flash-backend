@@ -3,7 +3,7 @@ const knex = require('../db/knex');
 
 router.get('/', (req, res) => {
   knex('myMessage')
-    .select('*')
+    .select()
     .then((result) => {
       res.json(result);
     });
